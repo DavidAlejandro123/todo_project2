@@ -8,16 +8,7 @@
     <el-row :gutter="12">
       <!-- v-forAñade. -->
       <TodoItem v-for="( todo, index ) in todos" :msg="todo" :index="index" :removeTodo="removeTodo" :key="index" />
-      <el-col :span="12"  v-for="( issue, index ) in issues" :key="issue.id">
-        <el-card class="box-card" shadow="hover" style="margin: 5px 0;">
-          <el-row :gutter="12">
-            <el-col :span="21">{{ issue.title }}</el-col>
-            <el-col :span="3">
-              <el-button @click="closeIssue(index)" type="success" icon="el-icon-check" circle></el-button>
-            </el-col>
-          </el-row>
-        </el-card>
-      </el-col>
+      <TodoItem v-for="(issue, index) in issues" :msg="issue.title" :index="index" :removeTodo="closeIssue" :key="issue.id" />
     </el-row>
   </div>
 </template>
